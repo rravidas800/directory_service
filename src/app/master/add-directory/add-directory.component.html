@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-lg" style="background-color: #f7666670;"> 
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">{{ appTitle }}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container mt-5">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link"  routerLink="/master/manage-directory" aria-current="page" href="#">Manage Directory</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Add Directory</a>
+        </li>
+      </ul>
+      <div class="row justify-content-md-center">
+        <div class="col-lg-8">
+            <form class="p-4" (ngSubmit)="onSubmit(directoryForm)" [formGroup]="directoryForm" enctype="multipart/form-data">
+                <div class="row mb-3">
+                  <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                  <div class="col-sm-10">
+                    <input type="text" [(ngModel)]="formData.name" class="form-control" id="name" name="name" formControlName="name">
+                    <div class="formError" *ngIf="directoryForm.get('name').invalid && (directoryForm.get('name').dirty || directoryForm.get('name').touched)" >Please enter name</div>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputProfession" class="col-sm-2 col-form-label">Profession</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" [(ngModel)]="formData.profession" id="inputProfession" name="profession" formControlName="profession">
+                    <div class="formError" *ngIf="directoryForm.get('profession').invalid && (directoryForm.get('profession').dirty || directoryForm.get('profession').touched)" >Please enter profession</div>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputContact" class="col-sm-2 col-form-label">Contact No.</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputContact" [(ngModel)]="formData.contactNo" name="contact_no" formControlName="contact_no">
+                    <div class="formError" *ngIf="directoryForm.get('contact_no').hasError('minlength') && directoryForm.get('contact_no').touched">Please Enter vailed contact no.</div>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">Email Id</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputEmail" [(ngModel)]="formData.emailId" name="email_id" formControlName="email_id">
+                    <div class="formError" *ngIf="directoryForm.get('email_id').hasError('email') && directoryForm.get('email_id').invalid && (directoryForm.get('email_id').dirty || directoryForm.get('email_id').touched)" >Please enter email id</div>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputAddress" class="col-sm-2 col-form-label">Address</label>
+                  <div class="col-sm-10">
+                    <textarea class="form-control" id="inputAddress" [(ngModel)]="formData.address" name="address" formControlName="address"></textarea>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputImage" class="col-sm-2 col-form-label">Image</label>
+                  <div class="col-sm-10">
+                    <input type="file" class="form-control" id="inputImage" formControlName="image" name="image" (change)="chooseImage($event)">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputImage" class="col-sm-2 col-form-label">Description</label>
+                  <div class="col-sm-10">
+                    <textarea class="form-control" [(ngModel)]="formData.description" formControlName="description" name="description" ></textarea>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label  class="col-sm-2 "></label>
+                  <div class="col-sm-10">
+                    <button type="submit" name="submit" class="btn btn-primary">Submit</button> &nbsp;&nbsp;
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                  </div>
+                </div>
+              </form>
+
+        </div>
+    </div>
+  </div>
