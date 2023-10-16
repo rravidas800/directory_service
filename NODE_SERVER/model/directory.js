@@ -8,7 +8,7 @@ const directorySchema=new mongoose.Schema({
     email_id:String,
     address:String,
     image:String,
-    Description:String
+    description:String
 })
 
 module.exports=mongoose.model("Directory",directorySchema)
