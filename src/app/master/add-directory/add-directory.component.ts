@@ -46,8 +46,13 @@ export class AddDirectoryComponent {
         {
           formFieldData.append('image',this.selectedFile,this.selectedFile.name)
         }
-        console.log(formFieldData.getAll);
-        console.log(formFieldData.getAll('image'));  
+
+        this.directoryService.submitDirectoryData(formFieldData).subscribe(result=>{
+          console.log(result);
+        })
+
+        /* console.log(formFieldData.getAll);
+        console.log(formFieldData.getAll('image'));   */
       
     }else{
       console.log("some field is manditory");

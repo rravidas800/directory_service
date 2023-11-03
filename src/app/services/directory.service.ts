@@ -12,7 +12,7 @@ export class DirectoryService {
   constructor(private http:HttpClient) { }
    
   submitDirectoryData(formData:FormData):Observable<any>{
-     return this.http.post(this.APP_URL,formData)
+     return this.http.post(this.APP_URL+"/directory/save",formData)
   }
   getDirectoryList(param:JSON):Observable<any>{
     return this.http.post(this.APP_URL,param)
