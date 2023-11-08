@@ -15,7 +15,7 @@ export class DirectoryService {
      return this.http.post(this.APP_URL+"/directory/save",formData)
   }
   getDirectoryList(param:JSON):Observable<any>{
-    return this.http.post(this.APP_URL,param)
+    return this.http.post(this.APP_URL+"/directory/view",param);
   }
 
 }

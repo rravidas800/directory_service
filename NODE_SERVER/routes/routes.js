@@ -42,15 +42,6 @@ routes.post('/directory/:type',(req,res,next)=>{
             description:req.body.description        
           });
 
-          console.log({
-            name:req.body.name,
-            profession:req.body.profession,
-            contact_no:req.body.contact_no,
-            email_id:req.body.email_id,
-            address:req.body.address,
-            image:imageName,
-            description:req.body.description        
-          });
           directory.save()
           .then(result=>{
               return res.status(200).json({
@@ -59,7 +50,6 @@ routes.post('/directory/:type',(req,res,next)=>{
               })
           })
           .catch(err=>{
-            console.log(err);
               unlink('./public/uploads/'+imageName,(err)=>{})
               return res.status(210).json({
                 status:"failed",
@@ -68,6 +58,22 @@ routes.post('/directory/:type',(req,res,next)=>{
           })
 
       })
+   }
+   else if(req.params.type=='view')
+   {
+        Directory.find()
+        .then(result=>{
+            return res.status(200).json({
+              status:"success",
+              result:result
+            })
+        })
+        .catch(err=>{
+            return res.status(210).json({
+              status:"failed",
+              "message":"Something went wrong! try again later"
+            })
+        })
    }
 
     

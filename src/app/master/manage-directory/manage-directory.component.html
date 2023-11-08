@@ -22,54 +22,39 @@
       </ul>
       <div class="row justify-content-md-center p-4">
         <div class="col-lg-12">
-
-          <table class="table" >
-            <caption></caption>
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Profession</th>
-                <th scope="col">Contact No.</th>
-                <th scope="col">Email Id</th>
-                <th scope="col">Address</th>
-                <th scope="col">Image</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td><a routerLink="">Edit</a></td>
-              </tr>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td><a routerLink="">Edit</a></td>
-              </tr>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td><a routerLink="">Edit</a></td>
-              </tr>
-            </tbody>
-          </table> 
+          <div *ngIf="arrAllData.length > 0">
+           
+            <table class="table" >
+              <caption></caption>
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Profession</th>
+                  <th scope="col">Contact No.</th>
+                  <th scope="col">Email Id</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                    <tr *ngFor="let dlist of arrAllData">
+                      <th scope="row">1</th>
+                      <td>{{ dlist.name }}</td>
+                      <td>{{ dlist.profession }}</td>
+                      <td>{{ dlist.contact_no }}</td>
+                      <td>{{ dlist.email_id }}</td>
+                      <td>{{ dlist.address }}</td>
+                      <td>{{ dlist.image }}</td>
+                      <td><a routerLink="">Edit</a></td>
+                    </tr>
+              
+              
+              
+              </tbody>
+            </table> 
+          </div>
 
 
 
